@@ -1,0 +1,23 @@
+name: FroobMechs
+main: com.froobworld.froobmechs.FroobMechs
+author: froobynooby
+version: 3.3.0
+api-version: 1.13
+description: >
+             Server utilities.
+commands:
+   orestats:
+    description: Get stats on a player's mining activities.
+    aliases: [os]
+   pvp:
+    description: Toggle PvP.
+
+
+
+
+
+
+
+
+
+
