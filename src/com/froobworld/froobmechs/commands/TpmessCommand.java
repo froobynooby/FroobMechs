@@ -52,7 +52,7 @@ public class TpmessCommand extends PlayerCommandExecutor {
 
         player.teleport(TeleportUtils.findSafeTeleportLocation(mess.getLocation()));
         player.sendMessage(ChatColor.YELLOW + "Teleported to mess #" + mess.getId() + ". Get scrubbing.");
-        player.sendMessage(ChatColor.YELLOW + "Once the mess is taken care of, use '/closemess" + mess.getId() + "'.");
+        player.sendMessage(ChatColor.YELLOW + "Once the mess is taken care of, use '/closemess " + mess.getId() + "'.");
         return true;
     }
 
