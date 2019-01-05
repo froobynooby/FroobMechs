@@ -1,7 +1,7 @@
 name: FroobMechs
 main: com.froobworld.froobmechs.FroobMechs
 author: froobynooby
-version: 3.3.0
+version: 3.4.0
 api-version: 1.13
 description: >
              Server utilities.
@@ -11,6 +11,14 @@ commands:
     aliases: [os]
    pvp:
     description: Toggle PvP.
+   mess:
+    description: Report a messy area at your location.
+   listmesses:
+    description: Get a list of reported messy areas.
+   tpmess:
+    description: Teleport to a reported messy area.
+   closemess:
+    description: Mark a reported messy area as cleaned.
 
 
 

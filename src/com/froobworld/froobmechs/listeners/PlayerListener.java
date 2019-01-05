@@ -1,6 +1,7 @@
 package com.froobworld.froobmechs.listeners;
 
 import com.froobworld.froobmechs.data.Playerdata;
+import com.froobworld.froobmechs.managers.MessManager;
 import com.froobworld.froobmechs.managers.PlayerManager;
 import com.froobworld.froobmechs.managers.TreeManager;
 import net.md_5.bungee.api.ChatColor;
@@ -14,16 +15,28 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerListener implements Listener {
     private PlayerManager playerManager;
     private TreeManager treeManager;
+    private MessManager messManager;
 
-    public PlayerListener(PlayerManager playerManager, TreeManager treeManager) {
+    public PlayerListener(PlayerManager playerManager, TreeManager treeManager, MessManager messManager) {
         this.playerManager = playerManager;
         this.treeManager = treeManager;
+        this.messManager = messManager;
     }
 
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        if(event.getPlayer().hasPermission("froobmechs.listmesses")) {
+            if (messManager.getOpenMesses().size() > 0) {
+               event.getPlayer().sendMessage(ChatColor.YELLOW + "There are reported messy areas. Use '/listmesses' to view a list.");
+            }
+        }
+    }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
     public void onBlockBreak(BlockBreakEvent e) {
